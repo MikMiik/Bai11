@@ -8,7 +8,7 @@ public sealed class EmergencyBridgeObserver : IAlertObserver
 
     public EmergencyBridgeObserver(IEmergencyMediator mediator)
     {
-        this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        this.mediator = mediator;
     }
 
     public void Update(AlertEvent alertEvent)
