@@ -41,7 +41,14 @@ public sealed class SensorMonitor
     {
         foreach (IAlertObserver observer in observers.ToArray())
         {
-            observer.Update(alertEvent);
+            try
+            {
+                observer.Update(alertEvent);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR] {observer.GetType().Name}: {ex.Message}");
+            }
         }
     }
 }
